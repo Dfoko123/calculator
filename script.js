@@ -5,7 +5,6 @@ function add(...param){
     }
     return sum;
 }
-console.log(division(0));
 function multiplication(...param){
     let product=1;
     for(let i=0;i<param.length;i++){
@@ -29,4 +28,28 @@ function substraction(...param){
         difference-=param[i];
     }
     return difference;
+}
+let numberOne;
+let numberTwo;
+let operator;
+function operate(nb1,nb2,opt){
+    let result=null;
+    switch(opt){
+        case '+':
+            result=add(nb1,nb2);
+            break;
+        case '-':
+            result=substraction(nb1,nb2);
+            break;
+        case '*':
+            result=multiplication(nb1,nb2);
+            break;
+        case '/':
+            result=division(nb1,nb2);
+            break;
+        default:
+            result="Operator is not defined ";
+    }
+    return result;
+
 }
