@@ -1,33 +1,17 @@
-function add(...param){
-    let sum=0;
-    for(let i=0;i<param.length;i++){
-        sum+=param[i];
-    }
-    return sum;
+function add(a,b){
+    
+    return a+b;
 }
-function multiplication(...param){
-    let product=1;
-    for(let i=0;i<param.length;i++){
-        product*=param[i];
-    }
-    return product;
+function multiplication(a,b){
+    
+    return a*b;
 }
-function division(...param){
-    let quotient=1;
-    for(let i=0;i<param.length;i++){
-        if(quotient===0){
-            return 0;
-        }
-        quotient/=param[i];
-    }
-    return quotient;
+function division(a,b){
+    return a/b;
 }
-function substraction(...param){
-    let difference=0;
-    for(let i=0;i<param.length;i++){
-        difference-=param[i];
-    }
-    return difference;
+function substraction(a,b){
+   
+    return a-b;
 }
 let numberOne;
 let numberTwo;
@@ -51,5 +35,98 @@ function operate(nb1,nb2,opt){
             result="Operator is not defined ";
     }
     return result;
-
 }
+
+function populate(button){
+   if(!(button.id=='clear'|| button.id=='=')){ button.addEventListener('click',()=>{
+        val.value+=button.textContent;
+        });
+   }
+    else  if(button.id=="clear"){
+        button.addEventListener('click',()=>{
+            val.value='';
+        });
+        
+    }
+    else if(button.id=='=' ){
+        button.addEventListener('click',()=>{
+            let p=val.value.split("");
+            let numeric="1234567890";
+            let opt='+-/*';
+            let number1=[];
+            let number2=[];
+            let optO=[];
+            for(let i=0;i<p.length;i++){
+                while(numeric.includes(p[i])){
+                    number1+=p[i];
+                    i++;
+                }
+                while(opt.includes(p[i])){
+                    optO=p[i];
+                    
+                    i++;
+                }
+                p.splice(0,i);
+                for(let j=0;j<p.length;j++){
+                    while(numeric.includes(p[j])){
+                        number2+=p[j];
+                        j++;
+                    }
+                }
+            }
+            
+            let nb1=+number1
+            let nb2=+number2;
+            if(optO.length>1){
+                val.value='error';
+            }
+            else if(optO.length==0){
+                val.value=nb1;
+            }
+            else {
+                let operat=optO;
+                val.value=operate(nb1,nb2,operat);
+            }
+
+        });
+    }
+}
+
+
+    let val=document.querySelector('input');
+    
+    let btn1=document.getElementById("1");
+    populate(btn1);
+    console.log(val.value);
+    let btn2=document.getElementById("2");
+    populate(btn2);
+    let btn3=document.getElementById("3");
+    populate(btn3);
+    let btn4=document.getElementById("4");
+    populate(btn4);
+    let btn5=document.getElementById("5");
+    populate(btn5);
+    let btn6=document.getElementById("6");
+    populate(btn6);
+    let btn7=document.getElementById("7");
+    populate(btn7);
+    let btn8=document.getElementById("8");
+    populate(btn8);
+    let btn9=document.getElementById("9");
+    populate(btn9);
+    let btn0=document.getElementById("0");
+    populate(btn0);
+    let btnAdd=document.getElementById("+");
+    populate(btnAdd);
+    let btnDiff=document.getElementById("-");
+    populate(btnDiff);
+    let btnPro=document.getElementById("x");
+    populate(btnPro);
+    let btnDiv=document.getElementById("/");
+    populate(btnDiv);
+    let btnClear=document.getElementById("clear");
+    populate(btnClear)
+    let btnEgal=document.getElementById("=");
+    populate(btnEgal);   
+    
+    

@@ -1,0 +1,38 @@
+body{
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container{
+
+    background-color:red;
+    width: 40%;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+
+}
+.screen{
+    background-color: white;
+    width:89%;
+    height: 70px;
+    margin-bottom: 30px;
+    border-style: none;
+}
+.table{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap:50px;
+    width: 89%;
+    margin-bottom: 5px;
+    
+    
+}
+button{
+    width: 100px;
+    aspect-ratio: 1/1;
+}
